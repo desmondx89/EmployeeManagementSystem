@@ -43,9 +43,9 @@ public class EmployeeController {
 	@GetMapping("/employees/new")
 	public String showNewEmployeeForm(Model model) {
 		List<Department> listDepartments = depRepo.findAll();
+		
 		int empid = empRepo.maxEmp() + 1;
-//		System.out.println(empid);
-
+		
 		model.addAttribute("employee", new Employee(empid));
 		model.addAttribute("listDepartments", listDepartments);
 		return "employee_form";
