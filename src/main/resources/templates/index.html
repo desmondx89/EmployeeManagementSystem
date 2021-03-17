@@ -16,7 +16,32 @@
 <!-- <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '342635437164091',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v10.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
+
+  FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
+</script>
 <script>
 function onSignIn(googleUser) {
 	// Useful data for your client-side scripts:
@@ -49,9 +74,13 @@ function onSignIn(googleUser) {
 		});
 
 		//this is not working
-		FB.logout();
+		FB.logout(function(response) {
+			   // Person is now logged out
+			});
 	}
 
+	
+	
 	function onLoad() {
 		gapi.load('auth2', function() {
 			gapi.auth2.init();

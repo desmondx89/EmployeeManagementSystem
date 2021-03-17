@@ -164,14 +164,18 @@ a.socialIcon:hover, .socialHoverClass {
 </head>
 
 <body oncontextmenu='return false' class='snippet-body'>
-	<script>
+	
+<script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '890060955151652',
+      appId      : '342635437164091',
+      cookie     : true,
       xfbml      : true,
       version    : 'v10.0'
     });
-    FB.AppEvents.logPageView();
+      
+    FB.AppEvents.logPageView();   
+      
   };
 
   (function(d, s, id){
@@ -181,8 +185,13 @@ a.socialIcon:hover, .socialHoverClass {
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+  
+
+  FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
 </script>
-	<div class="container">
+	<div class="container" onLoad="onSignIn(googleUser);">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="card">
