@@ -164,6 +164,24 @@ a.socialIcon:hover, .socialHoverClass {
 </head>
 
 <body oncontextmenu='return false' class='snippet-body'>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '890060955151652',
+      xfbml      : true,
+      version    : 'v10.0'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
@@ -178,13 +196,13 @@ a.socialIcon:hover, .socialHoverClass {
 						<input type="submit" name="" value="Login" class="btn">
 						<div class="col-md-12">
 							<ul class="social-network social-circle">
-								<li><a href="http://localhost:8080/oauth2/authorization/facebook" class="icoFacebook" title="Facebook">
+								<li><a href="https://emstesting1.herokuapp.com/oauth2/authorization/facebook" class="icoFacebook" title="Facebook">
 									<i class="fab fa-facebook-f"></i></a>
 								</li>
 								<li><a href="#" class="icoTwitter" title="Twitter">
 									<i class="fab fa-twitter"></i></a>
 								</li>
-								<li><a href="https://emstesting1.herokuapp.com/oauth2/authorization/google" class="icoGoogle" title="Google +">
+								<li><a href="https://emstesting1.herokuapp.com/oauth2/code/google" class="icoGoogle" title="Google +">
 									<i class="fab fa-google-plus"></i></a>
 								</li>
 								<!-- 
