@@ -15,6 +15,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 			+ " LIKE %?1%")
 	public Page<Employee> findAll(String keyword, Pageable pageable);
 
-	@Query("SELECT ISNULL(MAX(empid),0) FROM Employee")
+	@Query("SELECT COALESCE(MAX(empid),0) FROM Employee")
 	public int maxEmp();
 }
