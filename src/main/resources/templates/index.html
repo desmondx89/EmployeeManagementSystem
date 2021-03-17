@@ -4,7 +4,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<meta name="google-signin-client_id" content="978528847719-m8hm0gafefmp7nkkk5rpkp3mbj512kc3.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="978528847719-0rq1m8mn04d9nktuqe3h2t1ovslpkeij.apps.googleusercontent.com">
 <title>Inventory Home Page</title>
 
 <link href="webcss.css" rel="stylesheet">
@@ -18,6 +18,20 @@
 
 
 <script>
+function onSignIn(googleUser) {
+	// Useful data for your client-side scripts:
+	var profile = googleUser.getBasicProfile();
+	console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+	console.log('Full Name: ' + profile.getName());
+	console.log('Given Name: ' + profile.getGivenName());
+	console.log('Family Name: ' + profile.getFamilyName());
+	console.log("Image URL: " + profile.getImageUrl());
+	console.log("Email: " + profile.getEmail());
+
+	// The ID token you need to pass to your backend:
+	var id_token = googleUser.getAuthResponse().id_token;
+	console.log("ID Token: " + id_token);
+}
 	function signOut() {
 		console.log("triggered the function");
 
@@ -27,7 +41,7 @@
 			var auth2 = gapi.auth2.getAuthInstance();
 
 			console.log("auth 2 value: " + auth2);
-
+			GoogleAuth.signOut();
 			auth2.signOut().then(function() {
 				console.log('User signed out.');
 			});
@@ -59,7 +73,7 @@
 
 
 </head>
-<body oncontextmenu='return false' class='snippet-body'>
+<body oncontextmenu='return false' class='snippet-body' onLoad="onSignIn(googleUser);">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
