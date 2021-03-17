@@ -22,10 +22,10 @@ public class ApplicationController {
 		return "index";
 	}
 
-	@GetMapping("/return")
-	public String returnToHome() {
-		return "redirect:";
-	}
+//	@GetMapping("/return")
+//	public String returnToHome() {
+//		return "redirect:";
+//	}
 
 	@GetMapping("/login")
 	public String login(Model model) {
