@@ -17,7 +17,7 @@ public class ApplicationController {
 //    @Autowired
 //    private TokenStore tokenStore;
 
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String home() {
 		return "index";
 	}
