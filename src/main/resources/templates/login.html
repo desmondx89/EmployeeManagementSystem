@@ -187,9 +187,6 @@ a.socialIcon:hover, .socialHoverClass {
    }(document, 'script', 'facebook-jssdk'));
   
 
-  FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-  });
 </script>
 	<div class="container" onLoad="onSignIn(googleUser);">
 		<div class="row">
@@ -211,7 +208,7 @@ a.socialIcon:hover, .socialHoverClass {
 								<li><a href="#" class="icoTwitter" title="Twitter">
 									<i class="fab fa-twitter"></i></a>
 								</li>
-								<li><a href="https://emstesting1.herokuapp.com/login/oauth2/authorization/google" class="icoGoogle" title="Google +" data-onsuccess="onSignIn">
+								<li><a href="https://emstesting1.herokuapp.com/oauth2/authorization/google" class="icoGoogle" title="Google +" data-onsuccess="onSignIn">
 									<i class="fab fa-google-plus"></i></a>
 								</li>
 								<!-- 
