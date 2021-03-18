@@ -71,8 +71,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.logout()
 			.invalidateHttpSession(true)
             .clearAuthentication(true)
-//            .deleteCookies("JSESSIONID","XSRF-TOKEN","G_AUTHUSER_H")
+            
             .logoutUrl("/logout")
+            .deleteCookies("JSESSIONID","XSRF-TOKEN","G_AUTHUSER_H","G_ENABLED_IDPS","fr")
 //            .logoutSuccessHandler(oidcLogoutSuccessHandler())
             .logoutSuccessUrl("/login")
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
