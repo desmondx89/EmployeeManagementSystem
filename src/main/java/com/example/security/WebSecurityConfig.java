@@ -68,6 +68,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.permitAll()
 			.and()
 			
+			.oauth2Login()
+			.loginPage("/login")
+			.permitAll()
+			.and()
 			.logout()
 			.invalidateHttpSession(true)
             .clearAuthentication(true)
@@ -78,11 +82,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
             .logoutSuccessUrl("/login")
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
             .permitAll()
-			.and()
 			
-			.oauth2Login()
-			.loginPage("/login")
-			.permitAll()
+			
 			
 			
 
