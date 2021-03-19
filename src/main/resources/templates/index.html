@@ -66,8 +66,9 @@ function onSignIn(googleUser) {
 			var revokeAllScopes = function(){
 				gapi.auth2.getAuthInstance().disconnect();
 				alert("Triggered revoke all scopes!");
+				console.log("Triggered revoke all scopes!");
 			}
-			console.log('User signed out.');
+			console.log("User signed out!");
 			alert("User signed out!");
 
 		});
