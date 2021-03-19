@@ -63,14 +63,12 @@ function onSignIn(googleUser) {
 		gapi.load('auth2', function() {
 			gapi.auth2.init();
 
-			var auth2 = gapi.auth2.getAuthInstance();
-
-			console.log("auth 2 value: " + auth2);
-			GoogleAuth.signOut();
-			auth2.disconnect();
-			auth2.signOut().then(function() {
-				console.log('User signed out.');
-			});
+			var revokeAllScopes = function(){
+				gapi.auth2.getAuthInstance().disconnect();
+				alert("Triggered revoke all scopes!");
+			}
+			console.log('User signed out.');
+			alert("User signed out!");
 
 		});
 
@@ -84,7 +82,9 @@ function onSignIn(googleUser) {
 	
 	function onLoad() {
 		gapi.load('auth2', function() {
-			gapi.auth2.init();
+			auth2 = gapi.auth2.init({
+				client_id:'978528847719-0rq1m8mn04d9nktuqe3h2t1ovslpkeij.apps.googleusercontent.com'
+			});
 		});
 	}
 	
